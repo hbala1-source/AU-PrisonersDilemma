@@ -1,0 +1,52 @@
+<div class="div-tutorial-nav">
+    <table width="100%" border="0">
+        <tr>
+            <td width="80%"></td>
+            <td align="right" nowrap>
+                <button id="btnPrevious" onclick="game1ButtonPrevious()"><< Previous</button>
+                <button id="btnContinue" onclick="game1ButtonContinue()">Continue >> </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="divGame" style="display:block" class="div-tutorial">
+    <h3>Game #1 Two-player simultaneous prisoner’s dilemma</h3>
+
+    <form method="post" action="1">
+        <table width="100%" border="0" >
+            <tr>
+                <th align="center" width="20%">Player #1 (You)</td>
+                <th></td>
+                <th align="center" width="20%">Player #2 </td>
+            </tr>
+            <tr>
+                <td align="center"><img src="/images/player1.png" width="100px" ></td>
+                <td align="center"><img src="/images/matrix3.png"/></td>
+                <td align="center"><img src="/images/player2.png" width="100px" ></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="submit" name="submit" value="Cooperate"> or 
+                    <input type="submit" name="submit" value="Betray">
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="table-scores">
+            <tr>
+                <th class="th-scores" width="20%" bgcolor="#ed1c23">Your Move:</th>
+                <th class="th-scores" >Result:</th>
+                <th class="th-scores"  width="20%" bgcolor="#00a2e8">Opponent Move:</th>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1round1move %></td>
+                <td align="center"><%- round1result %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2round1move %></td>
+            </tr>
+        </table>
+    </form>
+</div>

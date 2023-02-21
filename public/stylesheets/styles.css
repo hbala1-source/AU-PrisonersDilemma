@@ -1,0 +1,200 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	line-height: 1.50em;
+	font-size: 16px;
+	background-color: #222;
+	color: #d4d4d4;
+}
+
+.simple-container {
+	max-width: 675px;
+	margin: 0 auto;
+	padding-top: 70px;
+	padding-bottom: 20px;
+}
+
+.simple-print {
+	fill: white;
+	stroke: white;
+}
+.simple-print svg {
+	height: 100%;
+}
+
+.simple-close {
+	color: white;
+	border-color: white;
+}
+
+.simple-ext-info {
+	border-top: 1px solid #aaa;
+}
+.errorMessage {
+	color: red;
+}
+.noticeMessage {
+	color: green;
+}
+.small-print {
+	font-size: 13px;
+	line-height: 1.25em;	
+}
+
+.div-tutorial {
+	border-style: solid;
+	border-width: thin;
+	padding-left: 20pt;
+	padding-right: 20pt;
+	padding-bottom: 20pt;
+	min-height: 300pt;
+	border-color: #aaa;
+}
+
+.div-quiz {
+	border-style: solid;
+	border-width: thin;
+	padding-left: 20pt;
+	padding-right: 20pt;
+	padding-bottom: 20pt;
+	min-height: 300pt;
+	border-color:aaa;
+}
+.div-questionnaire {
+	border-style: solid;
+	border-width: thin;
+	padding-left: 20pt;
+	padding-right: 20pt;
+	padding-bottom: 20pt;
+	min-height: 300pt;
+	border-color:aaa;
+}
+
+.div-tutorial-nav {
+	padding-top: 20pt;
+	width: 100%;
+	justify-content: center;
+
+}
+.header {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 26px;
+	font-weight: 200;
+	color:#222;
+	margin:0;
+    padding:0;
+	border:0;
+	background-color: #afafaf;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23919191' fill-opacity='0.67'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+}
+
+p {
+	font-size: 16px;
+}
+b {
+	color:chocolate;
+}
+h1 {
+	font-size: 30px;
+	line-height: 34px;
+}
+
+h2 {
+	font-size: 20px;
+	line-height: 25px;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight:600;
+	line-height: 27px;
+	padding-top: 15px;
+	padding-bottom: 0px;
+	/*border-bottom: 1px solid #D8D8D8;*/
+	/*border-top: 1px solid #D8D8D8;*/
+}
+
+hr {
+	height: 1px;
+	background-color: #d8d8d8;
+	border: none;
+	width: 100%;
+	margin: 0px;
+}
+
+a[href] {
+	color: #1e8ad6;
+}
+
+a[href]:hover {
+	color: #3ba0e6;
+}
+
+img {
+	max-width: 100%;
+}
+
+.table-scores {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 1px solid #d8d8d8;
+	border-collapse: collapse;
+	width: 100%;
+    font-size: 0.9em;
+    
+    
+}
+.th-scores {
+	border: 1px solid #d8d8d8;
+	text-align: center;
+	
+}
+.td-scores {
+	border: 1px solid #d8d8d8;
+	text-align: center;
+	color: #111;
+}
+
+li {
+	line-height: 1.5em;
+}
+.header-link[href] {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color:#111;
+	
+}
+.header-link[href]:hover {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color:rgb(158, 0, 0);
+}
+.header-button {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background: none;
+	border:none;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 700;
+	color:#111;
+}
+.header-button:focus {
+	outline: none;
+}
+.header-button:active {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color:rgb(158, 0, 0);
+}
+.header-button:hover {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color:rgb(158, 0, 0);
+}
+
+
+  

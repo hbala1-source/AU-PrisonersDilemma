@@ -1,0 +1,93 @@
+<div class="div-tutorial-nav">
+    <table width="100%" border="0">
+        <tr>
+            <td width="80%"></td>
+            <td align="right" nowrap>
+                <button id="btnPrevious" onclick="game2ButtonPrevious()"><< Previous</button>
+                <button id="btnContinue" onclick="game2ButtonContinue()">Continue >> </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="divGame" style="display:block" class="div-tutorial">
+    <h3>Game #2 Two-player sequential prisoner’s dilemma game</h3>
+
+    <form method="post" action="2">
+        <table width="100%" border="0">
+            <tr>
+                <th align="center" width="20%">Player #1 (You)</td>
+                <th></td>
+                <th align="center" width="20%">Player #2 </td>
+            </tr>
+            <tr>
+                <td align="center"><img src="/images/player1.png" width="100px" ></td>
+                <td align="center"><img src="/images/matrix4.png"/></td>
+                <td align="center"><img src="/images/player2.png" width="100px" ></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="submit" name="submit2" value="Cooperate"> or 
+                    <input type="submit" name="submit2" value="Betray">
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="table-scores">
+            <tr>
+                <th class="th-scores" bgcolor="#ed1c23" width="30%">Your Move:</th>
+                <th class="th-scores" bgcolor="#ed1c23" width="20%">Your Score:</th>
+                <th class="th-scores" bgcolor="#00a2e8" width="30%">Opponent Move:</th>
+                <th class="th-scores" bgcolor="#00a2e8" width="20%">Opponent Score:</th>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r1select %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r1score %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r1select %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r1score %></td>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r2select %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r2score %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r2select %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r2score %></td>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r3select %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r3score %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r3select %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r3score %></td>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r4select %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r4score %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r4select %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r4score %></td>
+            </tr>
+            <tr>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r5select %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- p1r5score %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r5select %></td>
+                <td class="td-scores" bgcolor="#b1e6fc"><%- p2r5score %></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="th-scores" bgcolor="#ed1c23"><%- p1totalscore %></td>
+                <td></td>
+                <td class="th-scores" bgcolor="#00a2e8"><%- p2totalscore %></td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+                    <br/><%- gamesummary %>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <p align="center">
+        <button id="btnRestartGame" onclick="game2RestartGame()">Restart Game</button>
+    </p>
+</div>

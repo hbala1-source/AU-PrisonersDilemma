@@ -1,0 +1,29 @@
+{
+  "name": "pdtutorial2",
+  "version": "1.0.0",
+  "description": "COMP495 Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
+  },
+  "author": "Hari Bala",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs": "^2.0.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.9.0",
+    "save": "^2.9.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  },
+  "webkit": {"plugin": true }
+}

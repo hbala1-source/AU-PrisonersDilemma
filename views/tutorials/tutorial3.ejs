@@ -1,0 +1,172 @@
+
+<div class="div-tutorial-nav">
+    <table width="100%" border="0">
+        <tr>
+            <td width="80%"></td>
+            <td align="right" nowrap><button id="btnPrevious" onclick="tutorial3ButtonPrevious()"><< Previous</button>
+                <button id="btnContinue" onclick="tutorial3ButtonContinue()">Continue >> </button>
+            </td>
+        </tr>
+    
+    </table>
+</div>
+
+<div id="divSection0" style="display:block" class="div-tutorial">
+    <h3>Section #2 Objectives</h3>
+    <table width="100%" border="0">
+        <tr valign="top">
+            <td valign="top">
+                After completing Section #2, you will be able to:
+                <ul>
+                    <li>	Understand <b>strategies</b> in Game Theory </li>
+                    <li>	Understand strategies for a <b>single prisoner’s dilemma game</b> </li>
+                    <li>	Understand common strategies for an <b>iterated prisoner’s dilemma game</b></li>
+                    <li>	Understand how a particular strategy performs against another strategy </li>
+                    <li>	Understand how a particular strategy performs against multiple strategies </li>
+                    <li>    Understand what the prisoner's dilemma teaches us </li>
+                </ul>
+            </td>
+            <td valign="top">
+                <img src="/images/rock.png" width="300px"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="divSection1" style="display:none" class="div-tutorial">
+    <h3>1.	Game Strategies</h3>
+    To recap, a strategy is an approach or algorithm for playing the game.  It defers from a specific move, which is an action taken during a player’s turn. 
+    A strategy is usually determined by the payoff, which can change based on the opponent’s strategy.  Most simple games will have a finite number of strategies; 
+    this is referred to as a strategy set.  Being aware of the <b>strategy set</b> allows a player to better predict the opponent play, and better utilize matching or 
+    opposing strategies to achieve a desired outcome.
+
+    <p></p>A <b>pure strategy</b> is one in which a player selects a strategy to select a single type of action. For example a player choosing to always play rock in rock-paper-scissors would be a pure strategy. 
+    
+    <p></p>A <b>mixed strategy</b> is an assignment of probabilities for all choices in the strategy set.  The strategy set for rock-paper-scissors contains: 
+    <i>S = {Always-Rock, Always-Paper, Always-Scissors}</i>, then the probability distribution would be 33.33% for this mixed strategy.
+    
+</div>
+
+<div id="divSection2" style="display:none" class="div-tutorial">
+    <h3>2.	Prisoner’s Dilemma Strategy</h3>
+
+    <p></p>In the normal-form prisoner’s dilemma where each player is separated and has a single simultaneous choice, the strategy would be to identify the dominant 
+    pure strategy.  Since there is no danger of the opponent penalizing our decision on a subsequent turn, a dominant strategy (when a player will play the best 
+    strategy regardless of the opponent’s choices) will be the best one.
+
+    <p></p><img src="/images/matrix2.png" width="400px"/>
+
+    <p></p>To arrive at the dominant strategy, we will tabulate the payoff totals for each choice:
+    <ul>
+        <li>Staying silent can receive -1 or -3 = -4 Total</li>
+        <li>Confessing can receive 0 or -2 = -2 Total</li>
+    </ul>    
+    
+    
+
+    Since we do not know how the opponent will select, confessing against your opponent would be the dominant strategy regardless of how the opponent chooses. 
+    However, the opponent knowing the dominant strategy for the game would also choose a dominant strategy of confessing, making it likely the outcome of the 
+    game would be A, B = (-2, -2).  This is the Nash Equilibrium for this scenario.
+</div>
+
+<div id="divSection3" style="display:none" class="div-tutorial">
+    <h3>3.	Video Description of Prisoner’s Dilemma </h3>
+    Please watch this short YouTube video on the Prisoner’s Dilemma:  
+    <br/>
+    <iframe width="566" height="400" src="https://www.youtube.com/embed/t9Lo2fgxWHw" frameborder="0"
+        allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div id="divSection4" style="display:none" class="div-tutorial">
+    <h3>4.	Iterated Sequential Prisoner’s Dilemma Strategy</h3>
+    In an iterated sequential prisoner’s dilemma game, both players are able to penalize or reward the other for their cooperation or betrayal on the previous turn. 
+    What types of strategy would be optimal in this type of game?
+
+    <p></p><img src="/images/matrix3.png" width="400px"/>
+    
+    <p></p>Let us examine some common strategies available for an iterated sequential game:
+    <ol>
+        <li><b>Always cooperate</b>: will choose a pure-strategy of always cooperate</li>
+        <li><b>Always betray</b>: will choose a pure-strategy of always betray</li>
+        <li><b>Tit-for-Tat</b>: will begin with cooperate, and continues to copy your last move</li>
+        <li><b>Grudger</b>: will begin with cooperate and continue cooperating, until they are betrayed against at which point they will always betray</li>
+        <li><b>Hard Majority</b>: will begin with betray, and continues to betray as long as the number of times the opponent has betrayed is equal or greater 
+            than the number of times it has cooperated; otherwise it cooperates</li>
+    </ol>
+        
+    There are many more variations of strategies, including the Southampton group strategy developed by England’s Southampton University which has which won 
+    the 20th anniversary iterated prisoner’s dilemma competition.
+    
+
+</div>
+
+<div id="divSection5" style="display:none" class="div-tutorial">
+    <h3>5.	Iterated Sequential Prisoner’s Dilemma Strategy</h3>
+    As we have seen from the simultaneous single play game, the dominant strategy was to always betray since we cannot predict the opponent’s strategy to cooperate or betray.
+
+    <p></p>However, let’s change the payoffs so that we are not just trying to beat the opponent, but we are also attempting to get the highest score possible.  Playing it safe 
+    by always betraying won’t yield the highest score.  Here is the new payoff matrix:
+
+    <p></p><img src="/images/matrix4.png" width="400px" />
+
+    <p></p>How would you adjust your strategy to maximize total score while beating the opponent at the same time?
+
+</div>
+
+<div id="divSection6" style="display:none" class="div-tutorial">
+    <h3>6.	Let’s look at some examples</h3>
+    Assume the opponent has pre-select their choices at random and does not choose to reward or penalize based on your choices.  The opponent’s choices are in the top row, 
+    and our five strategies are in the rows below:
+
+    <p></p><img src="/images/table1.png" width="600px" />
+
+    <p></p>As we can see, in a game in which the opponent is not actively rewarding or penalizing your choices, the dominant strategy of always betray is the one with the highest payoff.
+</div>
+
+<div id="divSection7" style="display:none" class="div-tutorial">
+    <h3>7.	Let’s look at some examples</h3>
+    What happens if the opponent selects a strategy which will penalize or reward based on your choices?  Let us select the Tit-for-Tat strategy to model for the opponent:
+
+    <p></p><img src="/images/table2.png" width="600px" />
+
+    <p></p>As we can see, the always betray performs the poorest against a strategy which will penalize betrayal. Strategies which combine rewarding cooperation and 
+    punishing betrayal tend to have higher payoff.
+
+</div>
+
+<div id="divSection8" style="display:none" class="div-tutorial">
+    <h3>8.	Multiple-player Iterative Prisoner’s Dilemma</h3>
+    
+    In the previous example, we paired one strategy against another. But each strategy has strengths and weaknesses. If we were to put all the strategies into a tournament, 
+    which strategy would produce the highest payoff?
+
+    <p></p>Six rounds were played between strategies as before and the scores are compiled below:
+
+    <p></p><img src="/images/table3.png" width="600px" />
+    
+    <p></p>Tit-for-tat resulted in the highest payoff outcome. One of the reasons this strategy is so successful is because it is quick to penalize an opponent for betrayal, 
+    but is also quick to forgive them if they choose to cooperate again.
+</div>
+
+<div id="divSection9" style="display:none" class="div-tutorial">
+    <h3>9.	Prisoner’s Dilemma Summary</h3>
+
+    The prisoner’s dilemma paradox is still a topic of study today because it extends far beyond the basic scenarios introduced in this learning module. It can teach us about human behaviour in conflict, competition between rival businesses, diplomacy between countries during war, and much more.
+
+    <table>
+        <tr>
+            <td>
+                <p></p>But there are some basics lessons which can be gleaned from this exercise:
+                <ul>
+                    <li><b>Don’t judge a book by its cover</b>: Repeated interactions produce a better picture of how people will behave. Many of the game strategies started with an initial cooperate or defect to probe, but changed in response to the opponent strategy revealing its true nature.</li>
+                    <li><b>Play nicely with others</b>: look for opportunities to cooperate when others are willing for a mutually beneficial experience. The strategies which rewarded good behaviour had much higher payoff outcome</li>
+                    <li><b>Forgive and forget</b>: it is natural for people to make mistakes, so be willing to forgive their mistakes and trust again. The tit-for-tat is a successful strategy because it is quickly willing to forgive betrayal</li>
+                </ul>
+            </td>
+            <td>
+                <img src="/images/friends.png" width="600px" />
+            </td>
+        </tr>
+    </table>
+    
+</div>

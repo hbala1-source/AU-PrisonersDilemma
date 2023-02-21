@@ -1,0 +1,197 @@
+
+<div class="div-tutorial-nav">
+    <table width="100%" border="0">
+        <tr>
+            <td width="80%"></td>
+            <td align="right" nowrap><button id="btnPrevious" onclick="tutorialButtonPrevious()"><< Previous</button>
+                <button id="btnContinue" onclick="tutorialButtonContinue()">Continue >> </button>
+            </td>
+        </tr>
+    
+    </table>
+</div>
+
+<div id="divSection0" style="display:block" class="div-tutorial">
+<h3>Section #1 Objectives</h3>
+    <table width="100%" border="0">
+        <tr>
+            <td>
+                After completing section #1, you will be able to:
+                <ul>
+                    <li>	Understand the origins of <b>game theory </b></li>
+                    <li>	Understand the components of a game, including <b>players</b>, <b>outcomes</b>, <b>payoffs</b>, and <b>strategies</b></li>
+                    <li>	Understand how a game is structured by its game-play characteristics</li>
+                    <li>	Understand a basic two player game-of-conflict </li>
+                    <li>	Understand the prisoner’s dilemma paradox in <b>simultaneous</b> and <b>sequential</b> mode</li>
+                    <li>	Understand how prisoner’s dilemma paradox is applied in society</li>
+                    <li>	Understand the <b>Nash Equilibrium </b>of the prisoner’s dilemma</li>
+                </ul>
+            </td>
+            <td>
+                <img src="/images/poker.png" width="350px"/>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+</div>
+<div id="divSection1" style="display:none" class="div-tutorial">
+    <h3>1.	A brief introduction to Game Theory</h3>
+
+    Game theory is a branch of applied mathematics which studies situations in which there is a conflict of interest between two parties. 
+    It was pioneered in the 1940s by mathematician John von Neumann and economist Oskar Morgenstern, received significant contributions by researchers 
+    and academics throughout the 1950s, and is an active field of research and applied science to this day. Game theory was brought into prominence in 
+    the modern day, by the biographic film A Beautiful Mind, inspired by the life of Professor John Nash of Princeton University.  Nash, who was the 
+    recipient of the Nobel Prize in Economic Sciences, contributed a number of concepts to Game Theory including the Nash Equilibrium and the Nash Bargaining Solution. 
+
+    <p></p>Game theory is unlike other sciences in that it does not have a clearly defined and narrow scope. Its concepts and applications are useful in a range of 
+    fields from economics, politics, psychology, diplomacy and war, and common parlor games from which it derives its name. Biologists have even linked Game theory 
+    to Darwin’s theory of evolution in biological interactions of cooperation vs competition in nature.
+    
+</div>
+
+
+<div id="divSection2" style="display:none" class="div-tutorial">
+    <h3>2.	So, how does Game Theory work?</h3>
+    Game theory studies decision-making between parties who have conflicting interests during which they can have one or more interactions. 
+    It isn’t concerned with winning or losing, but evaluating strategies of optimal decision-making of independent and competing parties.
+
+    <p></p>In a situation of conflicting interests, every interaction is defined as a <b>game</b> and any party making a decision is called a <b>player</b>.  
+    Each player’s decisions will be motivated by a <b>payoff</b> within the game. The set of decisions they make to pursue an intended outcome is called a <b>strategy</b>.  
+    Depending on the strategies available, the game may have many paths which can be depicted in a matrix or decision tree.  The <b>outcome</b> to a game can result from a 
+    combination of player strategies which results as a terminal node of the decision tree.  The <b>solution</b> to a game is one in which both players use the most efficient 
+    strategy to arrive at a terminal node of the decision tree.  
+
+    <p></p><b>Nash Equilibrium</b> is the most common way to define a game’s solution: it is where each player has used the optimal strategy regardless of the strategy the opponent 
+    has chosen, such that there are no better paths available by changing their own strategy.  We will discuss Nash’s equilibrium later…
+</div>
+
+<div id="divSection3" style="display:none" class="div-tutorial">
+    <h3>3.	The players</h3>
+    <table>
+        <tr>
+            <td>
+                One of the fundamental assumptions in Game Theory is that it has like-minded rational players who desire specific outcomes, attempt to choose the most optimal outcome, 
+                incorporate uncertainty in their decisions and calculate their probabilistic outcomes of every action; this is called the <b>rational choice theory</b>.  
+            
+                <p></p>So, what does it mean to be rational?  It is decision-making behaviour which is guided by reasoning that certain behaviour would result in an expected outcome.  
+                This leads to another assumption that game outcomes are controlled by the player’s decisions rather than by pure chance.  A player’s knowledge of a game and 
+                its available paths on a decision tree are bounded or incomplete.  Players will generally choose a strategy which provides them with the best chance to achieve 
+                an outcome based on the information they have available to them at that time.  
+            </td>
+            <td>
+                <img src="/images/players.png" size="400px"/>
+            </td>
+        </tr>
+    </table>
+    
+    
+</div>
+
+<div id="divSection4" style="display:none" class="div-tutorial">
+    <h3>4.	The game structure</h3>
+    
+    Games structure is determined by its characteristics. Common game characteristics include:
+    <ul>
+        <li><b>Number of players:</b> one-player, two-player… up to n-player</li>
+        <li><b>Options per play:</b> is the number of decisions available to each player per turn</li>
+        <li><b>Sequential vs simultaneous play:</b> whether both players play at the same time versus one after another</li>
+        <li><b>Perfect vs imperfect information:</b> whether all the information is available during decision making time (like in chess where all the opponent pawns are visible), 
+            versus only some information is available (like in poker where opponent cards are not visible)</li>
+        <li><b>Constant sum vs variable sum:</b> the game of conflict is constant sum when the total payoff is static. A variable sum game can have varying payoffs depending on 
+            strategy. Variable sum games are more suitable for cooperation strategies since higher payoffs are achievable if players act jointly for mutual benefit.</li>
+    </ul>   
+</div>
+
+
+<div id="divSection5" style="display:none" class="div-tutorial">
+    <h3>5.	A simple game depiction</h3>
+    
+    Let us visualize a simple two-player game (player A and player B) which contains two options per play (option 1 and option 2), which is played sequentially 
+    (player A goes first, then Player B goes after).  
+    
+    <p></p>The game can be depicted in a table or a tree as below.  A game in <b>normal-form</b> is often depicted in a table or matrix.  Normal form games are often played 
+    simultaneously and have perfect-information, so the players, payoff, numbers of plays, and strategies are known in advance.
+    <br/><img src="/images/matrix1.png" width="400px"/>
+
+    <p></p>An <b>extensive-form</b> game can depict additional details such as sequencing player moves, choices available at decision points, and potential imperfect-information 
+    at junction points.
+    <br/><img src="/images/game_tree.png" width="400px"/>
+   
+</div>
+
+<div id="divSection6" style="display:none" class="div-tutorial">
+    <h3>6.	Let’s try out an example…</h3>
+    Let’s assume a scenario in which two career bank robbers are attempting a bank heist.  They are caught by the police during their escape.  The police want to 
+    interrogate them to find out more about their scheme.  They decide to separate the robbers and question them individually.  In order to entice them, the police 
+    offer a lighter sentence if each robber will betray their accomplice and confess against the other.
+
+    <p></p>The offer from the police to both robbers is as follows:
+    <ul>
+        <li>If Robber A confesses and Robber B confesses, they both get 2 year prison time</li>
+        <li>If Robber A confesses and Robber B stays silent, Robber A goes free and Robber B gets 3 years prison time</li>
+        <li>If Robber A stays silent and Robber B confesses, then Robber A gets 3 years prison time and Robber B goes free</li>
+        <li>If Robber A stays silent and Robber B stays silent, they both get 1 year prison time</li>
+    </ul>
+    
+    Which option would you choose in this scenario?
+</div>
+
+<div id="divSection7" style="display:none" class="div-tutorial">
+    <h3>7.	The Prisoner’s Dilemma paradox</h3>
+    This example is referred to as the <b>Prisoner’s Dilemma paradox</b>.  It is the most common example studied in modern game theory in which two individuals have the option 
+    to cooperate for a mutually beneficial payoff or act in their own self-interest to maximize their personal payoff. The odds for this two-player simultaneous-play 
+    game can be summarized in a table called the payoff matrix:
+    
+    <p></p><img src="/images/matrix2.png">
+    
+    <p></p>Without prior knowledge of the opponent’s strategy, is it wise to trust the opponent to cooperate and stay silent, to act in one’s own self-interest?
+    
+    <p></p>This paradox demonstrates the decisions made under collective rationality may not necessarily be the same when made under individual rationality.
+
+
+</div>
+
+<div id="divSection8" style="display:none" class="div-tutorial">
+    <h3>8.	Prisoner’s Dilemma in society…</h3>
+    The prisoner’s dilemma was developed in 1950 by mathematicians Merrill Flood and Melvin Dresher during the Cold War.  Some have speculated the paradox was devised to simulate 
+    strategic thinking during the Cold War.  Modern society is faced with many common dilemmas in which behaviour of individuals or organizations can be beneficial or harmful for 
+    the greater good of society. The underlying motivation in many of these decisions is the payoff. 
+
+    <p></p>One variation of the paradox is the <b>Tragedy of Commons</b>, in which a common resource is available for everyone but has to be consumed by all people in moderation to 
+    ensure the resource is sustainable. The lumber and fishing industry are great examples. Each company can choose to consume resources in a sustainable manner which will be in 
+    the interest of the greater group, or any company may choose to maximize their profit by deforesting or overfishing to serve their own self-interest.
+    
+    <p></p>Another variation is the <b>Behaviour of Cartles</b>, in which all members of the cartel cap price or production in order to ensure they can all be profitable.  Similar to 
+    the previous variation, the market demand acts as the limited resources to regulate the payoff.  If one company undercuts the market price by decreasing its price or 
+    increasing production, all companies within the cartel would have to do the same, which would result in lower profits.
+    
+</div>
+
+<div id="divSection9" style="display:none" class="div-tutorial">
+    <h3>9.	An Iterated Sequential Prisoner’s Dilemma game</h3>
+    In the first example, the prisoner’s dilemma was played as a simultaneous game. Let us consider a scenario in which the game is played over multiple turns using the 
+    same payoff-penalty matrix where we keep tabulating the score for each round.
+
+    <p></p><img src="/images/matrix3.png" width="400px" />
+
+    <p></p>Since we can observe how the opponent has played in sequential play, a decision can be made to reward or penalize the opponent through cooperation 
+    and betrayal, and the opponent can do the same based on your responses. If you choose to betray the opponent, they may do the same in response over multiple plays 
+    which could lead to a situation of distrust where the payoff is worse.  If you choose to cooperate and build trust with the opponent, you can jointly have a better 
+    payoffs, but it wouldn’t be the best score option.
+    
+    <p></p>What would your strategy be in for this type of game?
+</div>
+
+
+<div id="divSection10" style="display:none" class="div-tutorial">
+    <h3>10.	The Nash Equilibrium</h3>
+    According to game theory, the solution to the game may be different depending on the payoff and the decisions of the opponent.  However, in some situations the 
+    strategy will always be the same regardless of the opponent’s game decisions.  This is referred to as the <b>dominant strategy</b>, which occurs when a player will 
+    play the best strategy regardless of the opponent’s choices.
+
+    <p></p>The <b>Nash Equilibrium</b>, named after Professor John Nash, is the most common way to define the solution to non-cooperative games. Unlike the dominant strategy, it acknowledges that each player considers opponent’s optimal strategy when formulating their own strategy. It states that a player has arrived at an optimal strategy such that they have nothing further to gain by changing their strategy regardless of the opponent’s choice to change strategies. When both players arrive at this state, it is referred to as Nash Equilibrium. 
+</div>
+
