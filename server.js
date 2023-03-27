@@ -38,7 +38,6 @@ mongoose.connect(process.env.DATABASE_URL, {
 });
 
 
-
 // application routes
 const indexRouter = require('./routes/index');
 const tutorialRouter = require('./routes/tutorials');

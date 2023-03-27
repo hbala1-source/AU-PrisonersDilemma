@@ -1,17 +1,13 @@
 class Game {
     constructor() {
         let round;
-        let p2strategy;
+        let totalRounds;
+        let p1strategy, p2strategy, p3strategy, p4strategy, p5strategy;
 
-        let p1r1score, p2r1score, p1r1select, p2r1select;
-        let p1r2score, p2r2score, p1r2select, p2r2select;
-        let p1r3score, p2r3score, p1r3select, p2r3select;
-        let p1r4score, p2r4score, p1r4select, p2r4select;
-        let p1r5score, p2r5score, p1r5select, p2r5select;
-
-        let p1totalscore, p2totalscore;
-
+        this.p1Plays = [], this.p2Plays = [], this.p3Plays = [], this.p4Plays = [], this.p5Plays = [], this.p6Plays = [];
+        this.p1Scores = [], this.p2Scores = [], this.p3Scores = [], this.p4Scores = [], this.p5Scores = [], this.p6Scores = [];
     }
+
     playGame(round, p1select, p2select) {
         this.round = round;
         if (this.p2strategy == 'Always Cooperate') {
@@ -501,6 +497,133 @@ class Game {
         }
     }
 
+    playAlwaysCooperate(p1PlaySelected) {
+        if (this.p1Plays.length > this.totalRounds) return;
+
+        this.p1Plays.push(p1PlaySelected);
+        this.p2Plays.push('Cooperate');
+
+        this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
+        this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
+    }
+
+    playAlwaysBetray(p1PlaySelected) {
+        if (this.p1Plays.length > this.totalRounds) return;
+
+        this.p1Plays.push(p1PlaySelected);
+        this.p2Plays.push('Betray');
+
+        this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
+        this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
+    }
+    
+    playTit4Tat(p1PlaySelected) {
+        if (this.p1Plays.length > this.totalRounds) return;
+
+        this.p1Plays.push(p1PlaySelected);
+        if (this.p2Plays.length == 0) this.p2Plays.push('Cooperate');
+        else {
+            this.p2Plays.push(this.p1Plays[this.round-1]);
+        }
+
+        this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
+        this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
+    }
+
+    playGrudger(p1PlaySelected) {
+        if (this.p1Plays.length > this.totalRounds) return;
+
+        if (this.p2Plays.length == 0) this.p2Plays.push('Cooperate');
+        else {
+            let betrayFlag = false;
+            for (let i=0; i<this.p1Plays.length; i++) {
+                if (this.p1Plays[i] == 'Betray') betrayFlag = true;
+            }
+            if (betrayFlag == true) this.p2Plays.push('Betray');
+            else this.p2Plays.push('Cooperate');
+        }
+        this.p1Plays.push(p1PlaySelected);
+
+        this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
+        this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
+    }
+
+    playHardMajority(p1PlaySelected) {
+        if (this.p1Plays.length > this.totalRounds) return;
+        let totalBetray =0, totalCooperate = 0;
+
+        if (this.p2Plays.length == 0) this.p2Plays.push('Betray');
+        else {
+            for (let i=0; i<this.p1Plays.length; i++) {
+                if (this.p1Plays[i] == 'Cooperate') totalCooperate++;
+                else totalBetray++;
+            }
+
+            if (totalBetray >= totalCooperate) this.p2Plays.push('Betray');
+            else this.p2Plays.push('Cooperate');
+        }        
+        this.p1Plays.push(p1PlaySelected);
+
+        this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
+        this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
+    }
+
+    simulateMultiplayerGame() {
+        if (round == 1) {
+            for (let i=0; i<5; i++) {
+                this.p1Plays.push('Cooperate');
+            }
+        }
+
+        for (let i=0; i<6; i++) {
+            playAlwaysCooperate(this.p1Plays.push())
+        }
+        
+
+
+    }
+
+    getScore(turn1, turn2) {
+        let score = 0;
+        if (turn1 == 'Cooperate' && turn2 == 'Cooperate') score = 3;
+        else if (turn1 == 'Cooperate' && turn2 == 'Betray') score = 0;
+        else if (turn1 == 'Betray' && turn2 == 'Cooperate') score = 5;
+        else if (turn1 == 'Betray' && turn2 == 'Betray') score = 1;
+
+        return score;
+    }
+
+    getP1TotalScore() {
+        let score = 0;
+        for (let i=0; i<this.p1Scores.length; i++) {
+            score += this.p1Scores[i];
+        }
+        return score;
+    }
+
+    getP2TotalScore() {
+        let score = 0;
+        for (let i=0; i<this.p2Scores.length; i++) {
+            score += this.p2Scores[i];
+        }
+        return score;
+    }
+
+    getGameSummary() {
+        let summary = '';
+        if (this.round >= 5 ) {
+            let p1totalscore =0 , p2totalscore = 0;
+            p1totalscore = this.getP1TotalScore();
+            p2totalscore = this.getP2TotalScore();
+            if (p1totalscore > p2totalscore) summary = 'Your WON! '
+            if (p1totalscore == p2totalscore) summary = 'You TIED! '
+            if (p1totalscore < p2totalscore) summary = 'You LOST! '
+            
+            summary += 'Your opponent was using the <b>' + this.p2strategy + '</b> strategy';
+            summary += '<br>Select Restart Game to play against another opponent';
+        }
+        return summary;
+    }
 }
 
 module.exports = Game;

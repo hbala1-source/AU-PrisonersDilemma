@@ -75,18 +75,24 @@ router.post('/', function(req, res) {
 
 async function validateLogin(username, password) {
     let retVal = '';
-    
-    
-    participant = new Participant();
-    participant.username = username;
-    participant.password = password;
+    let date = new Date();
+    let filter = { 
+        loginUsername: username, 
+        loginPassword: password
+    };
+    let update = { startTime: date };
+
+    let participant = new Participant();
+    //participant.username = username;
+    //participant.password = password;
     
     try {
-        participant = await Participant.findOne({
+        /* participant = await Participant.findOne({
             loginUsername: username,
             loginPassword: password
-        });         
-
+        });          */
+        
+        participant = await Participant.findOneAndUpdate( filter, update, {new: true} );
         
         if (participant != null) {
             if (participant.completionStatus == false) {

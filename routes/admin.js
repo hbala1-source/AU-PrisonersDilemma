@@ -41,13 +41,14 @@ async function insertParticipant(pUsername, pPassword, pType) {
     participant.loginUsername = pUsername;
     participant.loginPassword = pPassword;
     participant.completionStatus = false;
+    participant.startTime = null;
+    participant.endTime = null;
     try {
         await participant.save();
         console.log(participant);
     } catch(e) {
         console.log(e.message);
     }
-    
 }
 
 async function findParticipant() {

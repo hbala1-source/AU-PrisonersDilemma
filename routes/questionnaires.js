@@ -39,8 +39,7 @@ router.post('/', function(req, res) {
             questionnaire : questionnaireResponses,
             completionStatus : true
          } ;
-        console.log(filter);
-        console.log(update);
+        
         async function updateParticipant() {
             try {
                 participant = await Participant.findOneAndUpdate( filter, update, {

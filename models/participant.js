@@ -4,6 +4,8 @@ const participantSchema = new mongoose.Schema({
     loginUsername: String,
     loginPassword: String,
     completionStatus: Boolean,
+    startTime: Date,
+    endTime: Date,
     quizPreTest: [],
     quizPostTest: [],
     questionnaire: [] 

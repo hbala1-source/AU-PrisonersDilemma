@@ -84,6 +84,7 @@ router.post('/2', function(req,res) {
                 q1ErrorMessage: 'Missing or Invalid responses'
             });
     } else {
+        let date = new Date();
         let quiz2Responses = [];
         quiz2Responses.push(req.body.q1);
         quiz2Responses.push(req.body.q2);
@@ -96,7 +97,7 @@ router.post('/2', function(req,res) {
 
         participant.quizPostTest = quiz2Responses;
         const filter = { _id : session.userid };
-        const update = { quizPostTest : quiz2Responses } ;
+        const update = { quizPostTest : quiz2Responses, endTime: date } ;
         console.log(filter);
         console.log(update);
         async function updateParticipant() {
