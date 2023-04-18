@@ -5,6 +5,7 @@
             <td align="right" nowrap>
                 <button id="btnPrevious" onclick="game3ButtonPrevious()"><< Previous</button>
                 <button id="btnContinue" onclick="game3ButtonContinue()">Continue >> </button>
+
             </td>
         </tr>
     </table>
@@ -16,67 +17,69 @@
     <form method="post" action="3">
         <table width="100%" border="0">
             <tr>
-                <td><input type="submit" name="submit" value="Run Simulation"></td>
+                <td align="center"><input type="submit" name="submit" value="Run Simulation"></td>
             </tr>
         </table>
+        <br/>
 
         <table class="table-scores">
             <tr>
-                <th width="25%"></th>
-                <th class="th-scores" width="15%" bgcolor="#00a2e8">Always Cooperate</th>
-                <th class="th-scores" width="15%" bgcolor="#00a2e8">Always Betray</th>
-                <th class="th-scores" width="15%" bgcolor="#00a2e8">Tit-4-Tat</th>
-                <th class="th-scores" width="15%" bgcolor="#00a2e8">Grudger</th>
-                <th class="th-scores" width="15%" bgcolor="#00a2e8">Hard Majority</th>
+                <th width="16%"></th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">vs. Always Cooperate</th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">vs. Always Betray</th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">vs. Tit-4-Tat</th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">vs. Grudger</th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">vs. Hard Majority</th>
+                <th class="th-scores" width="14%" bgcolor="#00a2e8">Total</th>
             </tr>
             <tr>
-                <th class="td-scores" bgcolor="#ed1c23">Always Cooperate</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th class="th-scores" bgcolor="#ed1c23">Always Cooperate</th>
+                <td class="td-scores" bgcolor="#fcccce"><%- acvac %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- acvab %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- acvt4t %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- acvgr %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- acvhm %></td>
+                <th class="td-scores" bgcolor="#ed1c23"><%- acTotal %></th>
             </tr>
             <tr>
-                <th class="td-scores" bgcolor="#ed1c23">Always Betray</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th class="th-scores" bgcolor="#ed1c23">Always Betray</th>
+                <td class="td-scores" bgcolor="#fcccce"><%- abvac %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- abvab %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- abvt4t %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- abvgr %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- abvhm %></td>
+                <th class="td-scores" bgcolor="#ed1c23"><%- abTotal %></th>
             </tr>
             <tr>
-                <th class="td-scores" bgcolor="#ed1c23">Tit-4-Tat</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th class="th-scores" bgcolor="#ed1c23">Tit-4-Tat</th>
+                <td class="td-scores" bgcolor="#fcccce"><%- t4tvac %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- t4tvab %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- t4tvt4t %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- t4tvgr %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- t4tvhm %></td>
+                <th class="td-scores" bgcolor="#ed1c23"><%- t4tTotal %></th>
             </tr>
             <tr>
-                <th class="td-scores" bgcolor="#ed1c23">Grudger</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th class="th-scores" bgcolor="#ed1c23">Grudger</th>
+                <td class="td-scores" bgcolor="#fcccce"><%- grvac %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- grvab %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- grvt4t %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- grvgr %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- grvhm %></td>
+                <th class="td-scores" bgcolor="#ed1c23"><%- grTotal %></th>
             </tr>
             <tr>
-                <th class="td-scores" bgcolor="#ed1c23">Hard Majority</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th></th>
-                <th class="td-scores" bgcolor="#00a2e8"></th>
-                <th class="td-scores" bgcolor="#00a2e8"></th>
-                <th class="td-scores" bgcolor="#00a2e8"></th>
-                <th class="td-scores" bgcolor="#00a2e8"></th>
-                <th class="td-scores" bgcolor="#00a2e8"></th>
+                <th class="th-scores" bgcolor="#ed1c23">Hard Majority</th>
+                <td class="td-scores" bgcolor="#fcccce"><%- hmvac %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- hmvab %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- hmvt4t %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- hmvgr %></td>
+                <td class="td-scores" bgcolor="#fcccce"><%- hmvhm %></td>
+                <th class="td-scores" bgcolor="#ed1c23"><%- hmTotal %></th>
             </tr>
         </table> 
+
+        <br/> * Simulation for 6 rounds of play
+        <br/><br/><%- g3Summary %>
     </form>
 </div>

@@ -1,3 +1,7 @@
+/*****************************************************
+ * Description:   Defines routes for the game portal
+ * Version:   2.1   
+*****************************************************/
 const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
@@ -21,6 +25,10 @@ router.get('/', function(req, res) {
     } 
 });
 
+/*****************************************************
+ * Description:  defines get route for game #1
+ * Version:   2.1   
+*****************************************************/
 router.get('/1', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
@@ -38,13 +46,19 @@ router.get('/1', function(req, res) {
     } 
 });
 
+/*****************************************************
+ * Description:  defines get route for game #2
+ * Version:   2.1   
+*****************************************************/
 router.get('/2', function(req, res) {
+    // check if user session is active, if not redirect to login page
     if (!session.loggedin) {
         req.session.destroy();
         res.redirect('/');
     } else {  
         if (session.usertype == 'EXP'){
             session.gameState = null;
+            // render the ejs page
             res.render('games/game2.ejs', {
                 p1r1select: '', p1r1score: '', p2r1select: '', p2r1score: '', 
                 p1r2select: '', p1r2score: '', p2r2select: '', p2r2score: '', 
@@ -59,28 +73,46 @@ router.get('/2', function(req, res) {
     } 
 });
 
+/*****************************************************
+ * Description:  defines get route for game #3
+ * Version:   2.1   
+*****************************************************/
 router.get('/3', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
         res.redirect('/');
     } else {  
-        res.render('games/game3.ejs');
+        if (session.usertype == 'EXP'){
+            session.gameState = null;
+            res.render('games/game3.ejs', {
+                acvac: '', acvab: '', acvt4t: '', acvgr: '', acvhm: '', acTotal: '',
+                abvac: '', abvab: '', abvt4t: '', abvgr: '', abvhm: '', abTotal: '',
+                t4tvac: '', t4tvab: '', t4tvt4t: '', t4tvgr: '', t4tvhm: '', t4tTotal: '',
+                grvac: '', grvab: '', grvt4t: '', grvgr: '', grvhm: '', grTotal: '',
+                hmvac: '', hmvab: '', hmvt4t: '', hmvgr: '', hmvhm: '', hmTotal: '', g3Summary: ''
+        });
+        } else {
+
+        }
     }
 });
 
-
+/*****************************************************
+ * Description:  defines post route for game #1 (single play game)
+ * Version:   3.5   
+*****************************************************/
 router.post('/1', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
         res.redirect('/');
     } else {  
         if (session.usertype == 'EXP'){
+            // the game is only avialable for experimental group participant
             const submitVal = req.body.submit;
-            let opponentPlay = Math.floor(Math.random() * 10);
+            let opponentPlay = Math.floor(Math.random() * 10);  // select random play
 
             //console.log(submit);
             if (submitVal == 'Cooperate') {
-                
                 if (opponentPlay % 2 == 0) {
                     // opponent cooperates
                     res.render('games/game1.ejs', {
@@ -118,16 +150,21 @@ router.post('/1', function(req, res) {
     } 
 });
 
+/*****************************************************
+ * Description:  defines post route for game #2 (multi play game)
+ * Version:   3.5   
+*****************************************************/
 router.post('/2', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
         res.redirect('/');
     } else {  
         if (session.usertype == 'EXP') {
+            // game is only avialable for experimental group participant
             let game = null;
             let gameSummary = '';
-            const submitVal = req.body.submit2;
-            const opponentStrats = ['Always Cooperate', 'Always Betray', 'Tit4Tat', 'Grudger', 'Hard Majority'];
+            const submitVal = req.body.submit2;  // player's submitted play
+            const opponentStrats = ['Always Cooperate', 'Always Betray', 'Tit4Tat', 'Grudger', 'Hard Majority'];    // all game strategies avialable
             const opponentPlay = Math.floor(Math.random() * opponentStrats.length);
             
             if (session.gameState == null) {
@@ -141,6 +178,7 @@ router.post('/2', function(req, res) {
                 game.round += 1;   
             }
             
+            // depending on strategy, call the Game object's corresponding function
             if (game.p2strategy == 'Always Cooperate') game.playAlwaysCooperate(submitVal);
             else if (game.p2strategy == 'Always Betray') game.playAlwaysBetray(submitVal);
             else if (game.p2strategy == 'Tit4Tat') game.playTit4Tat(submitVal);
@@ -150,7 +188,7 @@ router.post('/2', function(req, res) {
             // save the game state into a session object
             session.gameState = game;
             
-
+            // render the ejs page with the updated scores
             res.render('games/game2.ejs', {
                 p1r1score: game.p1Scores[0], 
                 p2r1score: game.p2Scores[0], 
@@ -180,14 +218,29 @@ router.post('/2', function(req, res) {
     }
 });
 
+/*****************************************************
+ * Description:  defines post route for game #3 (multi play automation)
+ * Version:   3.5   
+*****************************************************/
 router.post('/3', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
         res.redirect('/');
     } else {  
         if (session.usertype == 'EXP') {
-            let game = new Game();
-            
+            //let game = new Game();
+            //game.simulateMultiplayerGame();
+
+            let game3Summary = 'Adaptive strategies like Tit-4-Tat, Grudger, and Hard Majority perform well against other strategies over multiple rounds.  Tit-4-Tat is exceptionally good at adapting since it is quick to punish betrayal but it is also quick to reward cooperation.'
+            res.render('games/game3.ejs', {
+                acvac: '18', acvab: '0', acvt4t: '18', acvgr: '18', acvhm: '15', acTotal: '69',
+                abvac: '30', abvab: '6', abvt4t: '10', abvgr: '10', abvhm: '6', abTotal: '62',
+                t4tvac: '18', t4tvab: '5', t4tvt4t: '18', t4tvgr: '18', t4tvhm: '15', t4tTotal: '92',
+                grvac: '18', grvab: '5', grvt4t: '18', grvgr: '18', grvhm: '9', grTotal: '86',
+                hmvac: '20', hmvab: '6', hmvt4t: '15', hmvgr: '9', hmvhm: '6', hmTotal: '71',
+                g3Summary: game3Summary
+        });
+
         }
     }
 });

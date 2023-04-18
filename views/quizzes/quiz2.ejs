@@ -12,7 +12,6 @@
                 <input type="submit" id="btnSubmitQuiz2" onclick="submitButtonQuiz2()" value="Submit Quiz >>">
             </td>
         </tr>
-    
     </table>
 </div>
 
@@ -20,56 +19,57 @@
     <h3>Quiz #2</h3>
 
     <ol>
-        <li>Some question here
-            <br/><input type="radio" id="q1val1" value="1" name="q1">Answer 1
-            <br/><input type="radio" id="q1val2" value="2" name="q1">Answer 2
-            <br/><input type="radio" id="q1val3" value="3" name="q1">Answer 3
-            <br/><input type="radio" id="q1val4" value="4" name="q1">Answer 4
+        <li>In a simultaneous prisoner’s dilemma game, what is the dominant strategy to use?
+            <br/><input type="radio" id="q1val1" value="1" name="q1"> Cooperate
+            <br/><input type="radio" id="q1val2" value="2" name="q1"> Betray
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q2val1" value="1" name="q2">Answer 1
-            <br/><input type="radio" id="q2val2" value="2" name="q2">Answer 2
-            <br/><input type="radio" id="q2val3" value="3" name="q2">Answer 3
-            <br/><input type="radio" id="q2val4" value="4" name="q2">Answer 4
+        <br/><li>In a simultaneous prisoner’s dilemma game, when does Nash Equilibrium occur?
+            <br/><input type="radio" id="q2val1" value="1" name="q2"> When both players cooperate
+            <br/><input type="radio" id="q2val2" value="2" name="q2"> When both players betray
+            <br/><input type="radio" id="q2val3" value="3" name="q2"> When Player A cooperates and Player B betrays
+            <br/><input type="radio" id="q2val4" value="4" name="q2"> When Player A cooperates and Player B betrays
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q3val1" value="1" name="q3">Answer 1
-            <br/><input type="radio" id="q3val2" value="2" name="q3">Answer 2
-            <br/><input type="radio" id="q3val3" value="3" name="q3">Answer 3
-            <br/><input type="radio" id="q3val4" value="4" name="q3">Answer 4
+
+        <br/>For questions 3-7, use the following payoff matrix:
+        <br/><img src="/images/matrix4.png" width="400px"/>
+
+        <br/><li>In an iterated prisoner’s dilemma game of n rounds, which strategy would win between always betray and tit-for-tat
+            <br/><input type="radio" id="q4val1" value="1" name="q4"> Always betray
+            <br/><input type="radio" id="q4val2" value="2" name="q4"> Tit-for-tat
+            <br/><input type="radio" id="q4val3" value="3" name="q4"> Draw / Tie
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q4val1" value="1" name="q4">Answer 1
-            <br/><input type="radio" id="q4val2" value="2" name="q4">Answer 2
-            <br/><input type="radio" id="q4val3" value="3" name="q4">Answer 3
-            <br/><input type="radio" id="q4val4" value="4" name="q4">Answer 4
+        <br/><li>In an iterated prisoner’s dilemma game of n rounds, which strategy would win between always betray and hard majority
+            <br/><input type="radio" id="q5val1" value="1" name="q5"> Always betray
+            <br/><input type="radio" id="q5val2" value="2" name="q5"> Hard majority
+            <br/><input type="radio" id="q5val3" value="3" name="q5"> Draw / Tie
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q5val1" value="1" name="q5">Answer 1
-            <br/><input type="radio" id="q5val2" value="2" name="q5">Answer 2
-            <br/><input type="radio" id="q5val3" value="3" name="q5">Answer 3
-            <br/><input type="radio" id="q5val4" value="4" name="q5">Answer 4
+        <br/><li>In an iterated prisoner’s dilemma game of n rounds, if the opponent has a predetermined sequence of plays (i.e. your plays do not affect their choice), which strategy will produce the highest total points?
+            <br/><input type="radio" id="q3val1" value="1" name="q3"> Always Cooperate
+            <br/><input type="radio" id="q3val2" value="2" name="q3"> Always Betray
+            <br/><input type="radio" id="q3val3" value="3" name="q3"> Tit-4-Tat
+            <br/><input type="radio" id="q3val4" value="4" name="q3"> Grudger
+            <br/><input type="radio" id="q3val5" value="5" name="q3"> Hard Majority
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q6val1" value="1" name="q6">Answer 1
-            <br/><input type="radio" id="q6val2" value="2" name="q6">Answer 2
-            <br/><input type="radio" id="q6val3" value="3" name="q6">Answer 3
-            <br/><input type="radio" id="q6val4" value="4" name="q6">Answer 4
+        <br/><li>In an iterated prisoner’s dilemma game of n rounds, if the opponent has an adaptive sequence of plays (i.e. they are making choices in response to your plays), which strategy will produce the highest total points?
+            <br/><input type="radio" id="q6val1" value="1" name="q6"> Always Cooperate
+            <br/><input type="radio" id="q6val2" value="2" name="q6"> Always Betray
+            <br/><input type="radio" id="q6val3" value="3" name="q6"> Tit-4-Tat
+            <br/><input type="radio" id="q6val4" value="4" name="q6"> Grudger
+            <br/><input type="radio" id="q6val5" value="5" name="q6"> Hard Majority
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q7val1" value="1" name="q7">Answer 1
-            <br/><input type="radio" id="q7val2" value="2" name="q7">Answer 2
-            <br/><input type="radio" id="q7val3" value="3" name="q7">Answer 3
-            <br/><input type="radio" id="q7val4" value="4" name="q7">Answer 4
+        <br/><li>In an iterated prisoner’s dilemma game, in which all the strategies (Always Cooperate, Always Betray, Tit-4-Tat, Grudger, Hard Majority) play each other, which strategy will produce the highest total points?
+            <br/><input type="radio" id="q7val1" value="1" name="q7"> Always Cooperate
+            <br/><input type="radio" id="q7val2" value="2" name="q7"> Always Betray
+            <br/><input type="radio" id="q7val3" value="3" name="q7"> Tit-4-Tat
+            <br/><input type="radio" id="q7val4" value="4" name="q7"> Grudger
+            <br/><input type="radio" id="q7val5" value="5" name="q7"> Hard Majority
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q8val1" value="1" name="q8">Answer 1
-            <br/><input type="radio" id="q8val2" value="2" name="q8">Answer 2
-            <br/><input type="radio" id="q8val3" value="3" name="q8">Answer 3
-            <br/><input type="radio" id="q8val4" value="4" name="q8">Answer 4
+        <br/><li>Why does the dominant strategy not always work in real-world interactions between people?
+            <br/><input type="radio" id="q8val1" value="1" name="q8"> Over repeated interactions, people will adjust to any particular strategy
+            <br/><input type="radio" id="q8val2" value="2" name="q8"> People generally look for opportunities to cooperate for a mutually beneficial experience
+            <br/><input type="radio" id="q8val3" value="3" name="q8"> Regardless of initial interaction, people are willing to forgive and trust again if subsequent interactions are positive
+            <br/><input type="radio" id="q8val4" value="4" name="q8"> All of the above
         </li>
     </ol>
-
-
 </form>
 </div>

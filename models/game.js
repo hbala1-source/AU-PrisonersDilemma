@@ -1,7 +1,11 @@
+/*****************************************************
+ * Description:   Defines Game object and functionality for Prisoner's Dilemma game
+ * Version:   2.3   
+*****************************************************/
 class Game {
     constructor() {
-        let round;
-        let totalRounds;
+        let round;  // current round
+        let totalRounds;    // total # of rounds to play
         let p1strategy, p2strategy, p3strategy, p4strategy, p5strategy;
 
         this.p1Plays = [], this.p2Plays = [], this.p3Plays = [], this.p4Plays = [], this.p5Plays = [], this.p6Plays = [];
@@ -497,39 +501,63 @@ class Game {
         }
     }
 
+    /*****************************************************
+     * Description: performs the Always Cooperate strategy 
+     * Input: play to evaluate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/
     playAlwaysCooperate(p1PlaySelected) {
         if (this.p1Plays.length > this.totalRounds) return;
 
-        this.p1Plays.push(p1PlaySelected);
-        this.p2Plays.push('Cooperate');
+        this.p1Plays.push(p1PlaySelected);  // push player's selected play
+        this.p2Plays.push('Cooperate');     // push this strategy's play (always cooperate)
 
         this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
         this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
     }
 
+    /*****************************************************
+     * Description: performs the Always Betray strategy 
+     * Input: play to evaluate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/
     playAlwaysBetray(p1PlaySelected) {
         if (this.p1Plays.length > this.totalRounds) return;
 
-        this.p1Plays.push(p1PlaySelected);
-        this.p2Plays.push('Betray');
+        this.p1Plays.push(p1PlaySelected);  // push player's selected play
+        this.p2Plays.push('Betray');        // push this strategy's play (always defect)
 
         this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
         this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
     }
     
+    /*****************************************************
+     * Description: performs the Tit-4-Tat strategy 
+     * Input: play to evaluate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/    
     playTit4Tat(p1PlaySelected) {
         if (this.p1Plays.length > this.totalRounds) return;
 
-        this.p1Plays.push(p1PlaySelected);
-        if (this.p2Plays.length == 0) this.p2Plays.push('Cooperate');
+        this.p1Plays.push(p1PlaySelected);  // push player's selected play
+        if (this.p2Plays.length == 0) this.p2Plays.push('Cooperate');   // start with cooperate
         else {
-            this.p2Plays.push(this.p1Plays[this.round-1]);
+            this.p2Plays.push(this.p1Plays[this.round-1]);  // if betray, selct the player's past play
         }
 
         this.p1Scores.push(this.getScore(this.p1Plays[this.round], this.p2Plays[this.round]));
         this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
     }
 
+    /*****************************************************
+     * Description: performs the Grudger strategy 
+     * Input: play to evaluate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/    
     playGrudger(p1PlaySelected) {
         if (this.p1Plays.length > this.totalRounds) return;
 
@@ -548,6 +576,12 @@ class Game {
         this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
     }
 
+    /*****************************************************
+     * Description: performs the Hard Majority strategy 
+     * Input: play to evaluate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/       
     playHardMajority(p1PlaySelected) {
         if (this.p1Plays.length > this.totalRounds) return;
         let totalBetray =0, totalCooperate = 0;
@@ -568,21 +602,33 @@ class Game {
         this.p2Scores.push(this.getScore(this.p2Plays[this.round], this.p1Plays[this.round]));
     }
 
-    simulateMultiplayerGame() {
-        if (round == 1) {
-            for (let i=0; i<5; i++) {
-                this.p1Plays.push('Cooperate');
+    /*****************************************************
+     * Description: runs a multi-player simulation 
+     * Input: strategy to simulate
+     * Output: none
+     * Version: 2.0
+     *****************************************************/    
+    simulateMultiplayerGame(strategy) {
+        this.p2strategy = 'Always Cooperate';
+        this.p3strategy = 'Always Betray';
+        this.p4strategy = 'Tit4Tat';
+        this.p5strategy = 'Grudger';
+        this.p6strategy = 'Hard Majority';
+
+        if (strategy == 'Always Cooperate') {
+            for (let i=0; i<6; i++) {
+                this.p1Plays == 
+                playAlwaysCooperate('Cooperate')
             }
         }
-
-        for (let i=0; i<6; i++) {
-            playAlwaysCooperate(this.p1Plays.push())
-        }
-        
-
-
     }
 
+    /*****************************************************
+     * Description: calculate game score
+     * Input: play 1, play 2
+     * Output: score (int)
+     * Version: 2.0
+     *****************************************************/        
     getScore(turn1, turn2) {
         let score = 0;
         if (turn1 == 'Cooperate' && turn2 == 'Cooperate') score = 3;
@@ -593,6 +639,12 @@ class Game {
         return score;
     }
 
+    /*****************************************************
+     * Description: calculate total score for player 1
+     * Input: 
+     * Output: total score (int)
+     * Version: 2.0
+     *****************************************************/       
     getP1TotalScore() {
         let score = 0;
         for (let i=0; i<this.p1Scores.length; i++) {
@@ -601,6 +653,12 @@ class Game {
         return score;
     }
 
+    /*****************************************************
+     * Description: calculate total score for player 2
+     * Input: 
+     * Output: total score (int)
+     * Version: 2.0
+     *****************************************************/          
     getP2TotalScore() {
         let score = 0;
         for (let i=0; i<this.p2Scores.length; i++) {
@@ -609,6 +667,12 @@ class Game {
         return score;
     }
 
+    /*****************************************************
+     * Description: produce a game summary description
+     * Input: 
+     * Output: game summary
+     * Version: 2.0
+     *****************************************************/          
     getGameSummary() {
         let summary = '';
         if (this.round >= 5 ) {

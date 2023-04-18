@@ -1,9 +1,17 @@
+/*****************************************************
+ * Description:   Defines routes for questionnaire 
+ * Version:   2.0  
+*****************************************************/
 const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const router = express.Router();
 const Participant = require('../models/participant');
 
+/*****************************************************
+ * Description:   default get route  
+ * Version:   2.0  
+*****************************************************/
 router.get('/', function(req, res) {
     if (!session.loggedin) {
         req.session.destroy();
@@ -15,7 +23,12 @@ router.get('/', function(req, res) {
     }
 }); 
 
+/*****************************************************
+ * Description:   default post route  
+ * Version:   2.0  
+*****************************************************/
 router.post('/', function(req, res) {
+    // check if all questions have been answered in the questionnaire
     if (req.body.q1 == null || req.body.q2 == null || req.body.q3 == null || req.body.q4 == null || 
         req.body.q5 == null || req.body.q6 == null || req.body.q7 == null || req.body.q8 == null) {
             res.render('questionnaires/questionnaire.ejs', {
@@ -23,6 +36,7 @@ router.post('/', function(req, res) {
             });
     }
     else {
+        // create an array to store the questionnaire answers
         let questionnaireResponses = [];
         questionnaireResponses.push(req.body.q1);
         questionnaireResponses.push(req.body.q2);
@@ -40,6 +54,7 @@ router.post('/', function(req, res) {
             completionStatus : true
          } ;
         
+        // define the update participant function to save the questionnaire to the database 
         async function updateParticipant() {
             try {
                 participant = await Participant.findOneAndUpdate( filter, update, {
@@ -50,7 +65,7 @@ router.post('/', function(req, res) {
                 console.log(e.message);
             }
         }
-        updateParticipant();
+        updateParticipant();    // update participant
         res.redirect('./completed');
     } 
 });

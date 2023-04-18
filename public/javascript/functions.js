@@ -1,3 +1,8 @@
+/*****************************************************
+ * Description:  Defines common javascript functions for client-side 
+ * Version:   4.1   
+*****************************************************/
+
 function openHelp() {
     let alertMsg = 'Please contact your research administrator (hbala1@learn.athabascau.ca) for any of the following issues: ';
     alertMsg += '\n\n - If you are experiencing difficulty logging in or have not yet received login credentials';
@@ -222,6 +227,12 @@ function game2ButtonPrevious() {
     window.location.replace("/games/1");
 }
 function game2ButtonContinue() {
+    window.location.replace("/games/3");
+}
+function game3ButtonPrevious() {
+    window.location.replace("/games/2");
+}
+function game3ButtonContinue() {
     window.location.replace("/quizzes/2");
 }
 
@@ -231,6 +242,7 @@ function game2RestartGame() {
 
 function submitButtonQuiz1() {
     //window.location.replace("/tutorials/tutorial2");
+    
 }
 
 function submitButtonQuiz2() {

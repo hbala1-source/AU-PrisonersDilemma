@@ -1,14 +1,21 @@
+/*****************************************************
+ * Description:   Defines default routes for application root
+ * Version:   2.1   
+*****************************************************/
 const { request } = require('express');
 const express = require('express');
 const session = require('express-session');
 const Participant = require('../models/participant');
 
-const router = express.Router();
+const router = express.Router();    // define a new router
 
+/*****************************************************
+ * Description:   get default route for application
+ * Version:   2.1   
+*****************************************************/
 router.get('/', function(req, res) {
     if (session.loggedin) {
-        //res.render('./tutorials/tutorial1.ejs')
-        res.redirect('tutorials/1');
+        res.redirect('tutorials/1');    // if logged in, go to 1st tutorial
     } else {
         res.render('index.ejs', {
             errorMessage: ''
@@ -16,7 +23,12 @@ router.get('/', function(req, res) {
     }
 });
 
+/*****************************************************
+ * Description:  get route for user who has completed tutorial
+ * Version:   2.1   
+*****************************************************/
 router.get('/completed', function(req,res) {
+    // if tutorial is completed, destroy session and redirect to index page
     session.userid = null;
     session.usertype = null;
     session.loggedin = false;
@@ -26,7 +38,12 @@ router.get('/completed', function(req,res) {
     });
 });
 
+/*****************************************************
+ * Description:  post route when user logs out of system
+ * Version:   2.1   
+*****************************************************/
 router.post('/logout', function(req,res) {
+    // destroy session and redirect to index page
     session.userid = null;
     session.usertype = null;
     session.loggedin = false;
@@ -36,8 +53,10 @@ router.post('/logout', function(req,res) {
     });
 });
 
-
-
+/*****************************************************
+ * Description:  post route when user logs in
+ * Version:   2.1   
+*****************************************************/
 router.post('/', function(req, res) {
     let username = req.body.loginUsername;
     let password = req.body.loginPassword;
@@ -73,6 +92,12 @@ router.post('/', function(req, res) {
     }
 });
 
+/*****************************************************
+ * Description: function to validate the login
+ * Input: username, password
+ * Output: status of login authentication
+ * Version: 2.1
+ *****************************************************/    
 async function validateLogin(username, password) {
     let retVal = '';
     let date = new Date();
@@ -83,15 +108,8 @@ async function validateLogin(username, password) {
     let update = { startTime: date };
 
     let participant = new Participant();
-    //participant.username = username;
-    //participant.password = password;
     
-    try {
-        /* participant = await Participant.findOne({
-            loginUsername: username,
-            loginPassword: password
-        });          */
-        
+    try {       
         participant = await Participant.findOneAndUpdate( filter, update, {new: true} );
         
         if (participant != null) {
@@ -111,8 +129,7 @@ async function validateLogin(username, password) {
         console.log(e.message);
         retVal = 'error';
     }
-    
-    
+        
     return retVal;
 }
 

@@ -9,10 +9,9 @@
                 <label id="q1ErrorMessage" class="errorMessage" name="errorMessage"><%= q1ErrorMessage %></label></td>
             </td>
             <td  width="20%" align="right" nowrap>
-                <input type="Submit" id="btnSubmitQuiz1" onclick="submitButtonQuiz1()" value="Submit Quiz >>">
+                <input type="Submit" id="btnSubmitQuiz1" name="btnSubmitQuiz1" onclick="submitButtonQuiz1()" value="Submit Quiz >>">
             </td>
         </tr>
-    
     </table>
 </div>
 
@@ -20,56 +19,58 @@
     <h3>Quiz #1</h3>
 
     <ol>
-        <li>Some question here
-            <br/><input type="radio" id="q1val1" value="1" name="q1">Answer 1
-            <br/><input type="radio" id="q1val2" value="2" name="q1">Answer 2
-            <br/><input type="radio" id="q1val3" value="3" name="q1">Answer 3
-            <br/><input type="radio" id="q1val4" value="4" name="q1">Answer 4
+        <li>Game theory was pioneered by:
+            <br/><input type="radio" id="q1val1" value="a" name="q1"> Mathematician Dr. John Nash
+            <br/><input type="radio" id="q1val2" value="b" name="q1"> Mathematicians Merrill Flood and Melvin Dresher
+            <br/><input type="radio" id="q1val3" value="c" name="q1"> Economist Adam Smith
+            <br/><input type="radio" id="q1val4" value="d" name="q1"> Mathematicians John von Neumann and Oskar Morgenstern  
+            <br/><label id="q1FeedbackMsg" class="noticeMessage" name="q1FeedbackMsg"><%= q1FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q1val1" value="1" name="q2">Answer 1
-            <br/><input type="radio" id="q2val2" value="2" name="q2">Answer 2
-            <br/><input type="radio" id="q2val3" value="3" name="q2">Answer 3
-            <br/><input type="radio" id="q2val4" value="4" name="q2">Answer 4
+        <br/><li>The following table is an example of a 
+            <br/><input type="radio" id="q1val1" value="a" name="q2"> Normal form game
+            <br/><input type="radio" id="q2val2" value="b" name="q2"> Extensive-form game
+            <br/><input type="radio" id="q2val3" value="c" name="q2"> Maximization sum game
+            <br/><input type="radio" id="q2val4" value="d" name="q2"> Variable strategy game
+            <br/><img src="/images/matrix1.png" width="400px"/>
+            <br/><label id="q2FeedbackMsg" class="noticeMessage" name="q2FeedbackMsg"><%= q2FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q3val1" value="1" name="q3">Answer 1
-            <br/><input type="radio" id="q3val2" value="2" name="q3">Answer 2
-            <br/><input type="radio" id="q3val3" value="3" name="q3">Answer 3
-            <br/><input type="radio" id="q3val4" value="4" name="q3">Answer 4
+        <br/><li>Rational choice theory states that:
+            <br/><input type="radio" id="q3val1" value="a" name="q3"> A player is most likely to select the option which is the most popular among the general population 
+            <br/><input type="radio" id="q3val2" value="b" name="q3"> A player is most likely to select random unconventional options to perplex the opponent and lower their payoff
+            <br/><input type="radio" id="q3val3" value="c" name="q3"> A player is most likely to select the option based on expected outcomes, decision uncertainty, and probability
+            <br/><input type="radio" id="q3val4" value="d" name="q3"> All of the above
+            <br/><label id="q3FeedbackMsg" class="noticeMessage" name="q3FeedbackMsg"><%= q3FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q4val1" value="1" name="q4">Answer 1
-            <br/><input type="radio" id="q4val2" value="2" name="q4">Answer 2
-            <br/><input type="radio" id="q4val3" value="3" name="q4">Answer 3
-            <br/><input type="radio" id="q4val4" value="4" name="q4">Answer 4
+        <br/><li>The prisoner’s dilemma paradox demonstrates that decisions made under collective rationality may not necessarily be the same made when under individual rationality
+            <br/><input type="radio" id="q4val1" value="a" name="q4"> True
+            <br/><input type="radio" id="q4val2" value="b" name="q4"> False
+            <br/><label id="q4FeedbackMsg" class="noticeMessage" name="q4FeedbackMsg"><%= q4FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q5val1" value="1" name="q5">Answer 1
-            <br/><input type="radio" id="q5val2" value="2" name="q5">Answer 2
-            <br/><input type="radio" id="q5val3" value="3" name="q5">Answer 3
-            <br/><input type="radio" id="q5val4" value="4" name="q5">Answer 4
+        <br/><li>In the prisoner’s dilemma game with the following payoff matrix, what is the most favourable outcome for <u>both</u> players?
+            <br/><input type="radio" id="q5val1" value="a" name="q5"> Player A remains silent and Player B remains silent
+            <br/><input type="radio" id="q5val2" value="b" name="q5"> Player A confess and Player B confess
+            <br/><input type="radio" id="q5val3" value="c" name="q5"> Player A confesses and Player B remains silent
+            <br/><input type="radio" id="q5val4" value="d" name="q5"> Player A remains silent and player B confesses
+            <br/><img src="/images/matrix2.png" width="400px"/>
+            <br/><label id="q5FeedbackMsg" class="noticeMessage" name="q5FeedbackMsg"><%= q5FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q6val1" value="1" name="q6">Answer 1
-            <br/><input type="radio" id="q6val2" value="2" name="q6">Answer 2
-            <br/><input type="radio" id="q6val3" value="3" name="q6">Answer 3
-            <br/><input type="radio" id="q6val4" value="4" name="q6">Answer 4
+        <br/><li>The behaviour of cartels paradox describes a situation in which multiple parties gradually increase their production to increase the market cap price, causing an increase in demand and price, subsequently increase profitability.
+            <br/><input type="radio" id="q6val1" value="a" name="q6"> True
+            <br/><input type="radio" id="q6val2" value="b" name="q6"> False
+            <br/><label id="q6FeedbackMsg" class="noticeMessage" name="q6FeedbackMsg"><%= q6FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q7val1" value="1" name="q7">Answer 1
-            <br/><input type="radio" id="q7val2" value="2" name="q7">Answer 2
-            <br/><input type="radio" id="q7val3" value="3" name="q7">Answer 3
-            <br/><input type="radio" id="q7val4" value="4" name="q7">Answer 4
+        <br/><li>A dominant strategy is one where the solution to the game is to play the most popular strategy in response to the opponent’s choices
+            <br/><input type="radio" id="q7val1" value="a" name="q7"> True
+            <br/><input type="radio" id="q7val2" value="b" name="q7"> False
+            <br/><label id="q7FeedbackMsg" class="noticeMessage" name="q7FeedbackMsg"><%= q7FeedbackMsg %></label>
         </li>
-        <br/><li>Some question here
-            <br/><input type="radio" id="q8val1" value="1" name="q8">Answer 1
-            <br/><input type="radio" id="q8val2" value="2" name="q8">Answer 2
-            <br/><input type="radio" id="q8val3" value="3" name="q8">Answer 3
-            <br/><input type="radio" id="q8val4" value="4" name="q8">Answer 4
+        <br/><li>Nash Equilibrium occurs when:
+            <br/><input type="radio" id="q8val1" value="a" name="q8"> One player plays their dominant strategy regardless of the opponent’s choices.
+            <br/><input type="radio" id="q8val2" value="b" name="q8"> Both players play their dominant strategy regardless of their opponent’s choices.
+            <br/><input type="radio" id="q8val3" value="c" name="q8"> Neither player plays their dominant strategy regardless of their opponent’s choices.
+            <br/><input type="radio" id="q8val4" value="d" name="q8"> When the score is tied 
+            <br/><label id="q8FeedbackMsg" class="noticeMessage" name="q8FeedbackMsg"><%= q8FeedbackMsg %></label>
         </li>
     </ol>
-
-
 </form>
 </div>
