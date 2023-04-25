@@ -12,6 +12,7 @@ class Game {
         this.p1Scores = [], this.p2Scores = [], this.p3Scores = [], this.p4Scores = [], this.p5Scores = [], this.p6Scores = [];
     }
 
+    // obsolete function - not used
     playGame(round, p1select, p2select) {
         this.round = round;
         if (this.p2strategy == 'Always Cooperate') {
