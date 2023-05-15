@@ -268,7 +268,7 @@ router.post('/3', function(req, res) {
             grTotal = grvac + grvab + grvt4t + grvgr + grvhm;
             hmTotal = hmvac + hmvab + hmvt4t + hmvgr + hmvhm;
 
-            let game3Summary = 'Adaptive strategies like Tit-4-Tat, Grudger, and Hard Majority perform well against other strategies over multiple rounds.  Tit-4-Tat is exceptionally good at adapting since it is quick to punish betrayal but it is also quick to reward cooperation.'
+            let game3Summary = 'Always defect is no longer a dominant strategy, since adaptive strategies are able to adjust to opponent plays over multiple rounds.  Tit-4-Tat is a good adaptive strategy since it is quick to punish betrayal but it is also quick to reward cooperation.'
             res.render('games/game3.ejs', {
                 acvac: acvac, acvab: acvab, acvt4t: acvt4t, acvgr: acvgr, acvhm: acvhm, acTotal: acTotal,
                 abvac: abvac, abvab: abvab, abvt4t: abvt4t, abvgr: abvgr, abvhm: abvhm, abTotal: abTotal,
