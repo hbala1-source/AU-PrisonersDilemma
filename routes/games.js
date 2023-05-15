@@ -228,16 +228,53 @@ router.post('/3', function(req, res) {
         res.redirect('/');
     } else {  
         if (session.usertype == 'EXP') {
-            //let game = new Game();
-            //game.simulateMultiplayerGame();
+            let rounds = req.body.rounds;
+            let game = new Game();
+
+            let acvac = game.playMultiAlwaysCooperate(rounds, 'Always Cooperate');
+            let acvab = game.playMultiAlwaysBetray(rounds, 'Always Cooperate');
+            let acvt4t = game.playMultiTit4Tat(rounds, 'Always Cooperate');
+            let acvgr = game.playMultiGrudger(rounds, 'Always Cooperate');
+            let acvhm = game.playMultiHardMajority(rounds, 'Always Cooperate');
+           
+
+            let abvac = game.playMultiAlwaysCooperate(rounds, 'Always Betray');
+            let abvab = game.playMultiAlwaysBetray(rounds, 'Always Betray');
+            let abvt4t = game.playMultiTit4Tat(rounds, 'Always Betray');
+            let abvgr = game.playMultiGrudger(rounds, 'Always Betray');
+            let abvhm = game.playMultiHardMajority(rounds, 'Always Betray');
+            
+            let t4tvac = game.playMultiAlwaysCooperate(rounds, 'Tit4Tat');
+            let t4tvab = game.playMultiAlwaysBetray(rounds, 'Tit4Tat');
+            let t4tvt4t = game.playMultiTit4Tat(rounds, 'Tit4Tat');
+            let t4tvgr = game.playMultiGrudger(rounds, 'Tit4Tat');
+            let t4tvhm = game.playMultiHardMajority(rounds, 'Tit4Tat');
+           
+            let grvac = game.playMultiAlwaysCooperate(rounds, 'Grudger');
+            let grvab = game.playMultiAlwaysBetray(rounds, 'Grudger');
+            let grvt4t = game.playMultiTit4Tat(rounds, 'Grudger');
+            let grvgr = game.playMultiGrudger(rounds, 'Grudger');
+            let grvhm = game.playMultiHardMajority(rounds, 'Grudger');
+            
+            let hmvac = game.playMultiAlwaysCooperate(rounds, 'Hard Majority');
+            let hmvab = game.playMultiAlwaysBetray(rounds, 'Hard Majority');
+            let hmvt4t = game.playMultiTit4Tat(rounds, 'Hard Majority');
+            let hmvgr = game.playMultiGrudger(rounds, 'Hard Majority');
+            let hmvhm = game.playMultiHardMajority(rounds, 'Hard Majority');
+           
+            acTotal = acvac + acvab + acvt4t + acvgr + acvhm;
+            abTotal = abvac + abvab + abvt4t + abvgr + abvhm;
+            t4tTotal = t4tvac + t4tvab + t4tvt4t + t4tvgr + t4tvhm;
+            grTotal = grvac + grvab + grvt4t + grvgr + grvhm;
+            hmTotal = hmvac + hmvab + hmvt4t + hmvgr + hmvhm;
 
             let game3Summary = 'Adaptive strategies like Tit-4-Tat, Grudger, and Hard Majority perform well against other strategies over multiple rounds.  Tit-4-Tat is exceptionally good at adapting since it is quick to punish betrayal but it is also quick to reward cooperation.'
             res.render('games/game3.ejs', {
-                acvac: '18', acvab: '0', acvt4t: '18', acvgr: '18', acvhm: '15', acTotal: '69',
-                abvac: '30', abvab: '6', abvt4t: '10', abvgr: '10', abvhm: '6', abTotal: '62',
-                t4tvac: '18', t4tvab: '5', t4tvt4t: '18', t4tvgr: '18', t4tvhm: '15', t4tTotal: '92',
-                grvac: '18', grvab: '5', grvt4t: '18', grvgr: '18', grvhm: '9', grTotal: '86',
-                hmvac: '20', hmvab: '6', hmvt4t: '15', hmvgr: '9', hmvhm: '6', hmTotal: '71',
+                acvac: acvac, acvab: acvab, acvt4t: acvt4t, acvgr: acvgr, acvhm: acvhm, acTotal: acTotal,
+                abvac: abvac, abvab: abvab, abvt4t: abvt4t, abvgr: abvgr, abvhm: abvhm, abTotal: abTotal,
+                t4tvac: t4tvac, t4tvab: t4tvab, t4tvt4t: t4tvt4t, t4tvgr: t4tvgr, t4tvhm: t4tvhm, t4tTotal: t4tTotal,
+                grvac: grvac, grvab: grvab, grvt4t: grvt4t, grvgr: grvgr, grvhm: grvhm, grTotal: grTotal,
+                hmvac: hmvac, hmvab: hmvab, hmvt4t: hmvt4t, hmvgr: hmvgr, hmvhm: hmvhm, hmTotal: hmTotal,
                 g3Summary: game3Summary
         });
 

@@ -236,6 +236,18 @@ function game3ButtonContinue() {
     window.location.replace("/quizzes/2");
 }
 
+function validateRounds() {
+    var rounds = document.getElementById('rounds').value;
+    if (!rounds.match(/^\d+/)) {
+        alert('please enter a number between 1 and 99');
+        return false;
+    }
+    if (rounds < 1 || rounds > 99) {
+        alert('please enter a number between 1 and 99');
+        return false;
+    }
+}
+
 function game2RestartGame() {
     window.location.replace("/games/2")
 }

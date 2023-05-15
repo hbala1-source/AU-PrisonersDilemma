@@ -15,9 +15,11 @@
     <h3>Game #3 Multi-player Iterative Prisoner’s Dilemma (Simulation)</h3>
 
     <form method="post" action="3">
-        <table width="100%" border="0">
-            <tr>
-                <td align="center"><input type="submit" name="submit" value="Run Simulation"></td>
+        <table align="center" border="0">
+            <tr align="center">
+                <td align="right">Number of Rounds (1-99): </td>
+                <td align="left"><input type="text" id="rounds" name="rounds" value="" size="2" maxlength="2"> </td>
+                <td align="left">&nbsp;&nbsp;<input type="submit" name="submit" onclick="return validateRounds()" value="Run Simulation"></td>
             </tr>
         </table>
         <br/>
@@ -79,7 +81,6 @@
             </tr>
         </table> 
 
-        <br/> * Simulation for 6 rounds of play
         <br/><br/><%- g3Summary %>
     </form>
 </div>
